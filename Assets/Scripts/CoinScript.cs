@@ -6,6 +6,7 @@ public class CoinScript : MonoBehaviour
 {
     #region PUBLIC VARIABLES
    public float turnSpeed = 90f;
+   // public GameObject particlePfab;
     #endregion
 
     // Start is called before the first frame update
@@ -20,12 +21,5 @@ public class CoinScript : MonoBehaviour
         transform.Rotate(turnSpeed * Time.deltaTime, 0, 0);
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Collision Happened");
-            gameObject.SetActive(false);    
-        }
-    }
+   
 }

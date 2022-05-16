@@ -18,24 +18,42 @@ public class SpawingCoins : MonoBehaviour
     private void SpawnCoins()
     {
       
-        for (float i = 0; i < 100; i= i+2f)
-        {
-           randomPoint  = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 2f+i), 1.5f, UnityEngine.Random.Range(-1.3f, 3.5f));
-            Debug.Log(randomPoint);
-        }
+          randomPoint  = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 20f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
+          //Debug.Log(randomPoint);
+        
        
-        GameObject temp = PoolScript.instance.GetObjectsFromPool("Coin");
-        Debug.Log("Coin to be activated");
+        GameObject temp = PoolScript.instance.GetObjectsFromPool("CoinS");
+       
         //GameObject temp = Instantiate(prefab, transform);
         if (temp != null)
         {
-            Debug.Log("tRUE");
+            
             temp.SetActive(true);
             //temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
             temp.transform.position = randomPoint;
 
 
        }
+    }
+    private void SpawnGCoins()
+    {
+
+        randomPoint = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 50f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
+        //Debug.Log(randomPoint);
+
+
+        GameObject temp = PoolScript.instance.GetObjectsFromPool("CoinG");
+       
+        //GameObject temp = Instantiate(prefab, transform);
+        if (temp != null)
+        {
+            
+            temp.SetActive(true);
+            //temp.transform.position = GetRandomPointInCollider(GetComponent<Collider>());
+            temp.transform.position = randomPoint;
+
+
+        }
     }
     Vector3 GetRandomPointInCollider(Collider collider)
     {
@@ -57,6 +75,7 @@ public class SpawingCoins : MonoBehaviour
     void Update()
     {
         SpawnCoins();
+        SpawnGCoins();
     }
 
 }

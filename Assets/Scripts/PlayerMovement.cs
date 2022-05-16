@@ -58,5 +58,24 @@ public class PlayerMovement : MonoBehaviour
         bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2) + 0.1f, groundMask);
         rb.AddForce(Vector3.up * playerJumpForce);
     }*/
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "CoinS" || collision.gameObject.tag == "CoinG")
+        {
+            //Instantiate(particlePfab,this.transform.position,Quaternion.identity);
+            GameObject expolsionPrefab = PoolScript.instance.GetObjectsFromPool("StarA");
+            if (expolsionPrefab != null)
+            {
+                expolsionPrefab.SetActive(true);
+                Debug.Log("Explosion True");
+                expolsionPrefab.transform.position = transform.position;
+            }
+            
+            Debug.Log("Collision Happened");
+            collision.gameObject.SetActive(false);
+            Debug.Log("GameObject False");
+        }
+    }
     #endregion
 }
