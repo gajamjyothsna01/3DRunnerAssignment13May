@@ -6,8 +6,9 @@ using UnityEngine;
 public class SpawingCoins : MonoBehaviour
 {
     public Transform playerPosition;
-    public GameObject prefab;
-    public GameObject platform;
+    Vector3 randomPoint;
+    //public GameObject prefab;
+    //public GameObject platform;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,13 @@ public class SpawingCoins : MonoBehaviour
 
     private void SpawnCoins()
     {
-        Vector3 randomPoint = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 30f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
+      
+        for (float i = 0; i < 100; i= i+2f)
+        {
+           randomPoint  = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 2f+i), 1.5f, UnityEngine.Random.Range(-1.3f, 3.5f));
+            Debug.Log(randomPoint);
+        }
+       
         GameObject temp = PoolScript.instance.GetObjectsFromPool("Coin");
         Debug.Log("Coin to be activated");
         //GameObject temp = Instantiate(prefab, transform);

@@ -20,4 +20,12 @@ public class CoinScript : MonoBehaviour
         transform.Rotate(turnSpeed * Time.deltaTime, 0, 0);
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Collision Happened");
+            gameObject.SetActive(false);    
+        }
+    }
 }
