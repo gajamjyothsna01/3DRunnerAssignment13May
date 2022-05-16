@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             }
             
             Debug.Log("Collision Happened");
+            GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>().Score(10);
             collision.gameObject.SetActive(false);
             Debug.Log("GameObject False");
         }
