@@ -18,7 +18,7 @@ public class SpawingCoins : MonoBehaviour
     private void SpawnCoins()
     {
       
-          randomPoint  = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 20f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
+          randomPoint  = playerPosition.position + new Vector3(UnityEngine.Random.Range(0f, 20f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
           //Debug.Log(randomPoint);
         
        
@@ -38,7 +38,7 @@ public class SpawingCoins : MonoBehaviour
     private void SpawnGCoins()
     {
 
-        randomPoint = playerPosition.position + new Vector3(UnityEngine.Random.Range(-10f, 50f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
+        randomPoint = playerPosition.position + new Vector3(UnityEngine.Random.Range(0f, 50f), 1f, UnityEngine.Random.Range(-1.3f, 3.5f));
         //Debug.Log(randomPoint);
 
 

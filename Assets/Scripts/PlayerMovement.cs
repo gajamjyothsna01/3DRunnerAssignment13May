@@ -69,13 +69,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 expolsionPrefab.SetActive(true);
                 Debug.Log("Explosion True");
-                expolsionPrefab.transform.position = transform.position;
+                expolsionPrefab.transform.position = transform.position + new Vector3(0,1,0);
             }
             
             Debug.Log("Collision Happened");
             GameObject.Find("ScoreManager").GetComponent<ScoreManagerScript>().Score(10);
             collision.gameObject.SetActive(false);
             Debug.Log("GameObject False");
+            //expolsionPrefab.SetActive(false);
         }
     }
     #endregion
